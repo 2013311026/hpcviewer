@@ -1,5 +1,7 @@
 package edu.rice.cs.hpc.viewer.scope.topdown;
 
+import org.eclipse.jface.viewers.TreeViewer;
+
 import edu.rice.cs.hpc.viewer.scope.AbstractContentProvider;
 
 /************************************************************************
@@ -9,4 +11,8 @@ import edu.rice.cs.hpc.viewer.scope.AbstractContentProvider;
  ************************************************************************/
 public class ScopeTreeContentProvider extends AbstractContentProvider 
 {
+
+	public ScopeTreeContentProvider(TreeViewer viewer) {
+		super(viewer);
+	}
 }

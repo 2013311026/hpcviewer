@@ -8,7 +8,6 @@ Bundle-Vendor: Rice University
 Require-Bundle: org.eclipse.ui,
  edu.rice.cs.hpc.data,
  org.eclipse.ui.ide.source
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Import-Package: 
  com.graphbuilder.math,

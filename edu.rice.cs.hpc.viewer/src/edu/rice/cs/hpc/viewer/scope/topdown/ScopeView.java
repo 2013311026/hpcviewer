@@ -64,7 +64,7 @@ public class ScopeView extends BaseScopeView
 
 	@Override
 	protected AbstractContentProvider getScopeContentProvider() {
-		return new ScopeTreeContentProvider();
+		return new ScopeTreeContentProvider(getTreeViewer());
 	}
 
     

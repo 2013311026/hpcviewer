@@ -84,6 +84,7 @@ abstract public class BaseScopeView  extends AbstractBaseScopeView {
         // Update root scope
         if (myRootScope != null && myRootScope.getChildCount() > 0) {
             treeViewer.setInput(myRootScope);
+            treeViewer.setChildCount(myRootScope, myRootScope.getChildCount());
             
             this.objViewActions.updateContent(getExperiment(), myRootScope);
 

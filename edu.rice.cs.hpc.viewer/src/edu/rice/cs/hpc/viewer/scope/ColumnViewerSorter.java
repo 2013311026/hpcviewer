@@ -68,10 +68,10 @@ public class ColumnViewerSorter extends ViewerComparator {
 					// --------------------------------------------------------------------
 					// save the current expaded elements to be restored after the sort
 					elements = viewer.getExpandedElements();
-					
-					// collapse all the items
-					viewer.collapseAll();
 				}
+				
+				// collapse all the items
+				viewer.collapseAll();
 				// before sorting, we need to check if the first row is an element header 
 				// something like "aggregate metrics" or zoom-in item
 				Tree tree = ColumnViewerSorter.this.viewer.getTree();

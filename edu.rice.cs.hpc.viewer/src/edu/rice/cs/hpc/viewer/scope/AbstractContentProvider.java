@@ -1,12 +1,22 @@
 package edu.rice.cs.hpc.viewer.scope;
 
+import org.eclipse.jface.viewers.ILazyContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 
+import edu.rice.cs.hpc.data.experiment.scope.RootScope;
 import edu.rice.cs.hpc.data.experiment.scope.Scope;
 
-public abstract class AbstractContentProvider implements ITreeContentProvider 
+public abstract class AbstractContentProvider 
+	implements ITreeContentProvider, ILazyContentProvider 
 {
+    private RootScope root;
+    private TreeViewer viewer;
+    
+    public AbstractContentProvider(TreeViewer viewer) {
+    	this.viewer = viewer;
+    }
     
     /**
      * get the number of elements (called by jface)
@@ -65,8 +75,22 @@ public abstract class AbstractContentProvider implements ITreeContentProvider
     * @param newInput the new input element, or <code>null</code> if the viewer
     *   does not have an input
     */
-    public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {}
+    public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+    	this.root = (RootScope) newInput;
+    }
  
+
+	@Override
+	public void updateElement(int index) {
+		if (root == null) return;
+		
+		Scope current = root.getSubscope(index);
+		Object parent = current.getParent();
+		
+		viewer.replace(parent, index, current);
+		viewer.setChildCount(current, current.getChildCount());
+	}    
+
     /*
      * (non-Javadoc)
      * @see org.eclipse.jface.viewers.IContentProvider#dispose()

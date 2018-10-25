@@ -46,7 +46,7 @@ public class FlatScopeView extends DynamicScopeView {
 
 	@Override
 	protected AbstractContentProvider getScopeContentProvider() {
-		return new FlatViewContentProvider();
+		return new FlatViewContentProvider(getTreeViewer());
 	}
 
 	@Override

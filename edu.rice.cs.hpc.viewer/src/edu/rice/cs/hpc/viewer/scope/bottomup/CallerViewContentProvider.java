@@ -1,5 +1,7 @@
 package edu.rice.cs.hpc.viewer.scope.bottomup;
 
+import org.eclipse.jface.viewers.TreeViewer;
+
 import edu.rice.cs.hpc.data.experiment.Experiment;
 import edu.rice.cs.hpc.data.experiment.scope.CallSiteScopeCallerView;
 import edu.rice.cs.hpc.data.experiment.scope.IMergedScope;
@@ -21,14 +23,16 @@ import edu.rice.cs.hpc.viewer.scope.AbstractContentProvider;
  ************************************************************************/
 public class CallerViewContentProvider extends AbstractContentProvider 
 {
+	public CallerViewContentProvider(TreeViewer viewer) {
+		super(viewer);
+	}
+
+
 	private ExclusiveOnlyMetricPropagationFilter exclusiveOnly;
 	private InclusiveOnlyMetricPropagationFilter inclusiveOnly;
 	//private PercentScopeVisitor percentVisitor;
 	//private FinalizeMetricVisitorWithBackup finalizeVisitor;
 	
-	public CallerViewContentProvider()
-	{
-	}
 	
     /**
      * get the number of elements (called by jface)
@@ -90,5 +94,5 @@ public class CallerViewContentProvider extends AbstractContentProvider
     	//RootScope root = experiment.getCallerTreeRoot();
 /*    	percentVisitor = new PercentScopeVisitor(experiment.getMetricCount(), root);
     	finalizeVisitor = new FinalizeMetricVisitorWithBackup(experiment.getMetrics());*/
-    }    
+    }
 }

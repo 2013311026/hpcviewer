@@ -50,7 +50,7 @@ public class CallerScopeView extends DynamicScopeView {
 
 	@Override
 	protected AbstractContentProvider getScopeContentProvider() {
-		return new CallerViewContentProvider();
+		return new CallerViewContentProvider(getTreeViewer());
 	}
 
 	@Override

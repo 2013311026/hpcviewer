@@ -332,6 +332,7 @@ abstract public class AbstractBaseScopeView  extends ViewPart
     	treeViewer.setContentProvider(getScopeContentProvider());
         treeViewer.getTree().setHeaderVisible(true);
         treeViewer.getTree().setLinesVisible(true);
+        treeViewer.setUseHashlookup(true);
         
         // --------------------------------------------------------------------
         // tricky code for linux: by default on linux the tooltip doesn't show up
